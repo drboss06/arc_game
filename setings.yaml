@@ -1,0 +1,11 @@
+screen_size: [800, 600]
+screen_title: My Game
+fps: 60
+fullscreen: false
+PADDLE_WIDTH: 80
+PADDLE_HEIGHT: 1
+BALL_DIAMETER: 15
+BLOCK_W: 60
+BLOCK_H: 20
+SPEED_B: 1.3
+SPEED_P: 2.9
