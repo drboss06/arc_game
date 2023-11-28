@@ -2,6 +2,8 @@ import pygame
 import sys
 import yaml
 from make_map import Map
+import menu_test
+
 
 # Определение констант
 # SCREEN_SIZE = (800, 600)
@@ -102,37 +104,7 @@ def main():
         pygame.display.flip()
         clock.tick(FPS)
 
-def main_menu():
-    while True:
-        print("1. Start Game")
-        print("2. Settings")
-        print("3. Exit Game")
-        choice = input("Choose an option: ")
-
-        if choice == "1":
-            main()
-        elif choice == "2":
-            settings()
-        elif choice == "3":
-            sys.exit()
-        else:
-            print("Invalid choice. Please choose a valid option.")
-
-def settings():
-    while True:
-        print("1. Option 1")
-        print("2. Option 2")
-        print("3. Return to Main Menu")
-        choice = input("Choose an option: ")
-
-        if choice == "1":
-            print("Option 1 chosen")
-        elif choice == "2":
-            print("Option 2 chosen")
-        elif choice == "3":
-            return
-        else:
-            print("Invalid choice. Please choose a valid option.")
+main_menu = menu_test.Menu(SCREEN_SIZE[0], SCREEN_SIZE[1])
 
 if __name__ == "__main__":
-    main_menu()
+    main_menu.main_menu()
