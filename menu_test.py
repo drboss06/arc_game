@@ -38,14 +38,15 @@ def settings():
 # settings_button = Button("Settings", 300, 300, 200, 50, WHITE, BLACK, settings)
 
 class Menu:
-    def __init__(self, WIDTH, HEIGHT):
+    def __init__(self, WIDTH, HEIGHT, start_game):
         self.WIDTH = WIDTH
         self.HEIGHT = HEIGHT
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
+        self.start_game = start_game
         
     def main_menu(self):
         # --- Main event loop
-        start_button = Button("Start Game", 300, 200, 200, 50, WHITE, BLACK, start_game)
+        start_button = Button("Start Game", 300, 200, 200, 50, WHITE, BLACK, self.start_game)
         settings_button = Button("Settings", 300, 300, 200, 50, WHITE, BLACK, settings)
 
         while True:
@@ -80,7 +81,7 @@ class Menu:
 
 class Button(Menu):
     def __init__(self, text, x, y, width, height, color, hover_color, action):
-        super().__init__(WIDTH, HEIGHT)
+        super().__init__(WIDTH, HEIGHT, start_game)
         self.rect = pygame.Rect(x, y, width, height)
         self.text = text
         self.color = color

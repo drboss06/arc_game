@@ -21,7 +21,7 @@ FPS = setings["fps"]
 BALL_DIAMETER = setings["BALL_DIAMETER"]
 BLOCK_W = setings["BLOCK_W"]
 BLOCK_H = setings["BLOCK_H"]
-SPEED_B = setings["SPEED_B"]
+SPEED_B = 1.3
 SPEED_P = setings["SPEED_P"]
 
 f.close()
@@ -67,8 +67,8 @@ def main():
                 paddle_x += 2 * SPEED_P
 
         # Обновление позиции мяча
-        ball.x += ball_dx * SPEED_B
-        ball.y += ball_dy * SPEED_B
+        ball.x += ball_dx * 1.3
+        ball.y += ball_dy * 1.3
 
         # Проверка столкновения с краями экрана
         if ball.left < 0 or ball.right > SCREEN_SIZE[0]:
@@ -87,7 +87,7 @@ def main():
             if ball.colliderect(block):
                 blocks.remove(block)
                 ball_dy *= -1  # Отражаем мяч
-                SPEED_B += 0.1
+                #SPEED_B += 0.1
                 break
 
         screen.fill((0, 0, 0))
@@ -95,7 +95,7 @@ def main():
         # Рисование ракетки и мяча
         pygame.draw.rect(screen, (255, 255, 255), 
                          pygame.Rect((paddle_x, SCREEN_SIZE[1] - PADDLE_HEIGHT, PADDLE_WIDTH, PADDLE_HEIGHT)))
-        pygame.draw.circle(screen, (255, 255, 255), ball.center, BALL_DIAMETER // 2)
+        pygame.draw.circle(screen, pygame.Color("red"), ball.center, BALL_DIAMETER // 2)
 
         # Рисование блоков
         for block in blocks:
@@ -104,7 +104,7 @@ def main():
         pygame.display.flip()
         clock.tick(FPS)
 
-main_menu = menu_test.Menu(SCREEN_SIZE[0], SCREEN_SIZE[1])
+main_menu = menu_test.Menu(SCREEN_SIZE[0], SCREEN_SIZE[1], main)
 
 if __name__ == "__main__":
     main_menu.main_menu()
