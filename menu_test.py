@@ -48,6 +48,7 @@ class Menu:
         # --- Main event loop
         start_button = Button("Start Game", 300, 200, 200, 50, WHITE, BLACK, self.start_game)
         settings_button = Button("Settings", 300, 300, 200, 50, WHITE, BLACK, settings)
+        exit_button = Button("Exit", 300, 400, 200, 50, WHITE, BLACK, sys.exit)
 
         while True:
             for event in pygame.event.get():  # User did something
@@ -59,6 +60,7 @@ class Menu:
                     pos = pygame.mouse.get_pos()
                     start_button.check_click(pos)
                     settings_button.check_click(pos)
+                    exit_button.check_click(pos)
 
             # --- Game logic should go here
 
@@ -70,11 +72,13 @@ class Menu:
             # Draw the buttons
             start_button.draw()
             settings_button.draw()
+            exit_button.draw()
 
             # Check for hover
             pos = pygame.mouse.get_pos()
             start_button.check_hover(pos)
             settings_button.check_hover(pos)
+            exit_button.check_hover(pos)
 
             # Go ahead and update the screen with what we've drawn.
             pygame.display.flip()
