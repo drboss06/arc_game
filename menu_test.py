@@ -46,9 +46,9 @@ class Menu:
         
     def main_menu(self):
         # --- Main event loop
-        start_button = Button("Start Game", 300, 200, 200, 50, WHITE, BLACK, self.start_game)
-        settings_button = Button("Settings", 300, 300, 200, 50, WHITE, BLACK, settings)
-        exit_button = Button("Exit", 300, 400, 200, 50, WHITE, BLACK, sys.exit)
+        start_button = Button("Start Game", 300, 200, 200, 50, WHITE, pygame.Color("red"), self.start_game)
+        settings_button = Button("Settings", 300, 300, 200, 50, WHITE, pygame.Color("red"), settings)
+        exit_button = Button("Exit", 300, 400, 200, 50, WHITE, pygame.Color("red"), sys.exit)
 
         while True:
             for event in pygame.event.get():  # User did something
