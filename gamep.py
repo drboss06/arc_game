@@ -28,6 +28,15 @@ f.close()
 
 Map = Map("levels.txt", BLOCK_W, BLOCK_H, SCREEN_SIZE)
 
+def check_collision(blocks, ball):
+    for block in blocks[:]:  # Итерируемся по копии списка
+        if ball.colliderect(block):
+            blocks.remove(block)
+            #ball_dy *= -1  # Отражаем мяч
+            #SPEED_B += 0.1
+            return 1
+            break
+
 def main():
     pygame.init()
     screen = pygame.display.set_mode(SCREEN_SIZE)
@@ -83,12 +92,14 @@ def main():
             ball_dy *= -1
 
         # Проверка столкновения с блоками
-        for block in blocks[:]:  # Итерируемся по копии списка
-            if ball.colliderect(block):
-                blocks.remove(block)
-                ball_dy *= -1  # Отражаем мяч
-                #SPEED_B += 0.1
-                break
+        # for block in blocks[:]:  # Итерируемся по копии списка
+        #     if ball.colliderect(block):
+        #         blocks.remove(block)
+        #         ball_dy *= -1  # Отражаем мяч
+        #         #SPEED_B += 0.1
+        #         break
+        if check_collision(blocks, ball):
+            ball_dy *= -1
 
         screen.fill((0, 0, 0))
 

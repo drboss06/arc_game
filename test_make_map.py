@@ -19,6 +19,7 @@ class TestMakeMap(unittest.TestCase):
 
         # List of blocks is not empty
         self.assertNotEqual(len(blocks), 0)
+        
 
 if __name__ == '__main__':
     unittest.main()
